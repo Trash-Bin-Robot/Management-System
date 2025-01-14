@@ -7,7 +7,7 @@
                         <User />
                     </el-icon>
                     <div class="card-content">
-                        <countup class="card-num color1" :end="6666" />
+                        <countup class="card-num color1" :end="7389" />
                         <div>用户访问量</div>
                     </div>
                 </el-card>
@@ -29,8 +29,8 @@
                         <Goods />
                     </el-icon>
                     <div class="card-content">
-                        <countup class="card-num color3" :end="8888" />
-                        <div>商品数量</div>
+                        <countup class="card-num color3" :end="265" />
+                        <div>今日订单量</div>
                     </div>
                 </el-card>
             </el-col>
@@ -41,7 +41,7 @@
                     </el-icon>
                     <div class="card-content">
                         <countup class="card-num color4" :end="568" />
-                        <div>今日订单量</div>
+                        <div>机器人数量</div>
                     </div>
                 </el-card>
             </el-col>
@@ -52,7 +52,7 @@
                 <el-card shadow="hover">
                     <div class="card-header">
                         <p class="card-header-title">订单动态</p>
-                        <p class="card-header-desc">最近一周订单状态，包括订单成交量和订单退货量</p>
+                        <p class="card-header-desc">最近一周机器人服务订单数量</p>
                     </div>
                     <v-chart class="chart" :option="dashOpt1" />
                 </el-card>
@@ -60,8 +60,8 @@
             <el-col :span="6">
                 <el-card shadow="hover">
                     <div class="card-header">
-                        <p class="card-header-title">品类分布</p>
-                        <p class="card-header-desc">最近一个月销售商品的品类情况</p>
+                        <p class="card-header-title">机器人品类分布</p>
+                        <p class="card-header-desc">已部署机器人品类分布</p>
                     </div>
                     <v-chart class="chart" :option="dashOpt2" />
                 </el-card>
@@ -72,7 +72,7 @@
                 <el-card shadow="hover" :body-style="{ height: '400px' }">
                     <div class="card-header">
                         <p class="card-header-title">时间线</p>
-                        <p class="card-header-desc">最新的销售动态和活动信息</p>
+                        <p class="card-header-desc">最新的订单状态和活动信息</p>
                     </div>
                     <el-timeline>
                         <el-timeline-item v-for="(activity, index) in activities" :key="index" :color="activity.color">
@@ -90,8 +90,8 @@
             <el-col :span="10">
                 <el-card shadow="hover" :body-style="{ height: '400px' }">
                     <div class="card-header">
-                        <p class="card-header-title">渠道统计</p>
-                        <p class="card-header-desc">最近一个月的订单来源统计</p>
+                        <p class="card-header-title">产品分布</p>
+                        <p class="card-header-desc">当前在运行机器人分布情况统计</p>
                     </div>
                     <v-chart class="map-chart" :option="mapOptions" />
                 </el-card>
@@ -100,7 +100,7 @@
                 <el-card shadow="hover" :body-style="{ height: '400px' }">
                     <div class="card-header">
                         <p class="card-header-title">排行榜</p>
-                        <p class="card-header-desc">销售商品的热门榜单Top5</p>
+                        <p class="card-header-desc">机器人热门服务Top5</p>
                     </div>
                     <div>
                         <div class="rank-item" v-for="(rank, index) in ranks">
@@ -156,32 +156,32 @@ use([
 registerMap('china', chinaMap);
 const activities = [
     {
-        content: '收藏商品',
-        description: 'xxx收藏了你的商品，就是不买',
-        timestamp: '30分钟前',
+        content: '用户呼叫',
+        description: '山东省枣庄市薛城区凯润花园8-403呼叫配送外卖服务',
+        timestamp: '36分钟前',
         color: '#00bcd4',
     },
     {
         content: '用户评价',
-        description: 'xxx给了某某商品一个差评，吐血啊',
+        description: '北京市海淀区褐石小区4-201给了配送快递服务好评',
         timestamp: '55分钟前',
         color: '#1ABC9C',
     },
+    // {
+    //     content: '订单提交',
+    //     description: 'xxx提交了订单，快去收钱吧',
+    //     timestamp: '1小时前',
+    //     color: '#3f51b5',
+    // },
     {
-        content: '订单提交',
-        description: 'xxx提交了订单，快去收钱吧',
-        timestamp: '1小时前',
-        color: '#3f51b5',
-    },
-    {
-        content: '退款申请',
-        description: 'xxx申请了仅退款，又要亏钱了',
+        content: '问题反馈',
+        description: '广东省深圳市罗湖区惠贞花园8栋机器人待检修',
         timestamp: '15小时前',
         color: '#f44336',
     },
     {
-        content: '商品上架',
-        description: '运营专员瞒着你上架了一辆飞机',
+        content: '产品部署',
+        description: '浙江省宁波市鄞州区城市森林部署10台机器人',
         timestamp: '1天前',
         color: '#009688',
     },
@@ -189,32 +189,32 @@ const activities = [
 
 const ranks = [
     {
-        title: '手机',
-        value: 10000,
+        title: '配送外卖',
+        value: 10324,
         percent: 80,
         color: '#f25e43',
     },
     {
-        title: '电脑',
-        value: 8000,
+        title: '配送快递',
+        value: 8078,
         percent: 70,
         color: '#00bcd4',
     },
     {
-        title: '相机',
-        value: 6000,
+        title: '走廊清扫',
+        value: 6456,
         percent: 60,
         color: '#64d572',
     },
     {
-        title: '衣服',
-        value: 5000,
+        title: '搬运重物',
+        value: 5023,
         percent: 55,
         color: '#e9a745',
     },
     {
-        title: '书籍',
-        value: 4000,
+        title: '回收垃圾',
+        value: 4827,
         percent: 50,
         color: '#009688',
     },
